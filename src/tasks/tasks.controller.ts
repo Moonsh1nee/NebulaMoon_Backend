@@ -37,7 +37,7 @@ export class TasksController {
 
   @UseGuards(JwtAuthGuard)
   @Get()
-  async findAll(@Req() req: AuthenticatedRequest) {
-    return this.tasksService.findAll(req.user._id.toString());
+  async findAll(@Req() req: AuthenticatedRequest, @Query() query: any) {
+    return this.tasksService.findAll(req.user._id.toString(), query);
   }
 }
